@@ -69,6 +69,39 @@ const projects: Project[] = [
     githubLink: "https://github.com/Sonamtsering12057/Android-CA1",
     category: "Mobile",
   },
+  {
+    id: 6,
+    title: "PlacementBuddy Pro",
+    description:
+      "A comprehensive platform designed to streamline the placement process for students, featuring AI-powered resume analysis and interview prep tools.",
+    image: "https://images.unsplash.com/photo-1521737711867-e3b97375f902?q=80&w=2000&auto=format&fit=crop",
+    techStack: ["React", "TypeScript", "Node.js", "PostgreSQL"],
+    liveLink: "https://github.com/Sonamtsering12057/Minimal-Portfolio",
+    githubLink: "https://github.com/Sonamtsering12057/Minimal-Portfolio",
+    category: "Full Stack",
+  },
+  {
+    id: 7,
+    title: "SkillSprint Frontend",
+    description:
+      "A modern, high-performance learning management system frontend with interactive course modules and progress tracking.",
+    image: "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?q=80&w=2000&auto=format&fit=crop",
+    techStack: ["React", "Vite", "Tailwind CSS", "Framer Motion"],
+    liveLink: "https://github.com/Sonamtsering12057/Minimal-Portfolio",
+    githubLink: "https://github.com/Sonamtsering12057/Minimal-Portfolio",
+    category: "Frontend",
+  },
+  {
+    id: 8,
+    title: "Social Media Frontend",
+    description:
+      "The companion frontend for the Social Media API, featuring real-time feeds, chat, and a sleek, responsive user interface.",
+    image: "https://images.unsplash.com/photo-1611162617474-5b21e879e113?q=80&w=2000&auto=format&fit=crop",
+    techStack: ["React", "Redux", "Socket.io", "Tailwind CSS"],
+    liveLink: "https://github.com/Sonamtsering12057/Minimal-Portfolio",
+    githubLink: "https://github.com/Sonamtsering12057/Minimal-Portfolio",
+    category: "Frontend",
+  },
 ];
 
 const categories = ["All", "Full Stack", "Frontend", "Backend", "Mobile"];

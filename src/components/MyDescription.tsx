@@ -176,53 +176,7 @@ const MyDescription: React.FC<{ startNotation: boolean }> = ({ startNotation: _s
           </div>
         </motion.div>
 
-        {/* About Me Card */}
-        <motion.div
-          variants={itemVariants}
-          className="md:col-span-4 lg:col-span-6 glass p-10 sm:p-14 rounded-[2.5rem] relative overflow-hidden group"
-        >
-          <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-primary/0 via-primary to-primary/0" />
-          <div className="absolute bottom-0 right-0 w-96 h-96 bg-primary/5 rounded-full blur-[120px] -mr-48 -mb-48 group-hover:bg-primary/10 transition-colors duration-700" />
 
-          <div className="relative z-10 space-y-6">
-            <div className="flex items-center gap-3">
-              <div className="w-1 h-10 bg-primary rounded-full" />
-              <h2 className="text-3xl sm:text-4xl font-black text-foreground">About Me</h2>
-            </div>
-
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-              <div className="space-y-4">
-                <p className="text-lg text-muted-foreground leading-relaxed">
-                  Hi! I'm <span className="text-foreground font-bold">Sonam Tsering</span>, a passionate
-                  <span className="text-primary font-semibold"> Full Stack Developer</span> with a strong
-                  foundation in building fast, scalable web and mobile applications.
-                </p>
-                <p className="text-lg text-muted-foreground leading-relaxed">
-                  I've gone through hands-on training in <span className="text-foreground font-semibold">Android Development</span> and
-                  <span className="text-foreground font-semibold"> Full Stack Development</span>, where I honed
-                  my ability to deliver practical, real-world solutions from the ground up.
-                </p>
-              </div>
-              <div className="space-y-4">
-                <p className="text-lg text-muted-foreground leading-relaxed">
-                  My tech stack includes <span className="text-primary font-semibold">React, Node.js, Java,
-                  TypeScript</span>, and more. I care deeply about clean code,
-                  performance, and creating intuitive user experiences that make a difference.
-                </p>
-                <div className="flex flex-wrap gap-3 pt-2">
-                  {["React", "Node.js", "Java", "TypeScript", "Android", "Full Stack"].map((tag) => (
-                    <span
-                      key={tag}
-                      className="px-4 py-1.5 rounded-full text-sm font-semibold bg-primary/10 text-primary border border-primary/20"
-                    >
-                      {tag}
-                    </span>
-                  ))}
-                </div>
-              </div>
-            </div>
-          </div>
-        </motion.div>
       </div>
     </motion.div>
   );
