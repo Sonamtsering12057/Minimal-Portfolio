@@ -2,7 +2,7 @@
 
 A minimal, clean and elegant portfolio template for showcasing your work and skills.
 
-This is the public version of my personal portfolio, which you can view [here](https://ubednama.netlify.app/).
+This is the public version of my personal portfolio.
 
 ## Getting Started
 
@@ -21,14 +21,14 @@ git@2.17.1 or higher
 
 ```bash
 # 1. Clone the repository:
-git clone https://github.com/ubednama/Minimal-Portfolio.git
+git clone https://github.com/SonamTsering/Minimal-Portfolio.git
 cd minimal-portfolio
 
 # Install dependencies
-yarn install
+npm install
 
 # Run the development server
-yarn dev
+npm run dev
 
 # Open your browser and navigate to
 http://localhost:5173
@@ -50,7 +50,7 @@ yarn preview
 - **React**
 - **TypeScript**
 - **Tailwind CSS**
-- **Yarn**
+- **npm**
 - **Lucide React**
 - **Simple Icons**
 - **React Rough Notation**

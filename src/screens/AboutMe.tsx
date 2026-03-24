@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import { useAutoAnimate } from "@formkit/auto-animate/react";
-import LocationCapsule from "../components/LocationCapsule";
 import MyDescription from "../components/MyDescription";
 
 const AboutMe: React.FC = () => {
@@ -15,17 +14,16 @@ const AboutMe: React.FC = () => {
 
   return (
     <div
-      className="h-screen max-h-screen flex items-center justify-center relative"
+      className="min-h-screen flex items-center justify-center relative py-20 lg:py-32"
       id="AboutMeScreen"
     >
       <div
-        className="flex justify-center items-center w-full h-full"
+        className="w-full"
         ref={mainParent}
       >
         {mountChildren && <MyDescription startNotation={startNotation} />}
       </div>
       <div className="absolute top-0 left-0 w-full h-20" />
-      <LocationCapsule />
     </div>
   );
 };

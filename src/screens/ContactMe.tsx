@@ -1,141 +1,138 @@
-import { Copy } from "lucide-react";
-import React from "react";
+import { Copy, Mail, Phone, Linkedin, Github, MessageSquare, ExternalLink, Check } from "lucide-react";
+import React, { useState } from "react";
+import { motion } from "framer-motion";
 
 const ContactMe: React.FC = () => {
+  const [copied, setCopied] = useState(false);
+  const email = "sontseofficial@gmail.com";
+
   const copyToClipboard = () => {
-    navigator.clipboard.writeText("kubedrn@gmail.com").then(
-      () => {
-        alert("Email copied to clipboard: kubedrn@gmail.com");
-      },
-      (err) => {
-        console.error("Failed to copy email address: ", err);
-      }
-    );
+    navigator.clipboard.writeText(email).then(() => {
+      setCopied(true);
+      setTimeout(() => setCopied(false), 2000);
+    });
   };
 
   const contactMethods = [
     {
-      label: "Drop me a mail",
-      icon: <Copy className="size-4" />,
-      onClick: copyToClipboard,
-      link: "mailto:kubedrn@gmail.com",
-      imgSrc: "https://cdn.simpleicons.org/gmail",
-      imgAlt: "Gmail",
+      label: "Email",
+      value: email,
+      icon: <Mail className="size-5 text-primary" />,
+      link: `mailto:${email}`,
+      actionIcon: copied ? <Check className="size-4 text-green-500" /> : <Copy className="size-4" />,
+      onAction: copyToClipboard,
     },
     {
-      label: "Connect with me",
-      link: "https://www.linkedin.com/in/ubed9/",
-      imgSrc: "https://cdn.simpleicons.org/linkedin",
-      imgAlt: "LinkedIn",
+      label: "WhatsApp / Call",
+      value: "+91 9073558448",
+      icon: <Phone className="size-5 text-secondary" />,
+      link: "tel:+919073558448",
     },
     {
-      label: "Follow me on Twitter",
-      link: "https://twitter.com/__ubednama",
-      imgSrc: "https://cdn.simpleicons.org/x",
-      imgAlt: "Twitter",
+      label: "LinkedIn",
+      value: "Sonam Tsering",
+      icon: <Linkedin className="size-5 text-accent" />,
+      link: "https://www.linkedin.com/in/SonamTsering",
     },
   ];
 
-  const otherProfiles = [
-    {
-      link: "https://github.com/ubednama",
-      imgSrc: "https://cdn.simpleicons.org/github",
-      imgAlt: "GitHub",
-      className: "text-gray-800 hover:text-gray-600",
-    },
-    {
-      link: "https://leetcode.com/ubednama",
-      imgSrc: "https://cdn.simpleicons.org/leetcode",
-      imgAlt: "LeetCode",
-      className: "text-orange-500 hover:text-orange-400",
-    },
-    {
-      link: "https://codeforces.com/profile/alamgir1444",
-      imgSrc: "https://cdn.simpleicons.org/codeforces",
-      imgAlt: "Codeforces",
-      className: "text-blue-500 hover:text-blue-400",
-    },
+  const socialLinks = [
+    { name: "GitHub", icon: <Github />, href: "https://github.com/SonamTsering", color: "hover:text-primary" },
+    { name: "LeetCode", icon: <ExternalLink />, href: "https://leetcode.com/", color: "hover:text-orange-500" },
+    { name: "Codeforces", icon: <ExternalLink />, href: "https://codeforces.com/", color: "hover:text-blue-500" },
   ];
 
   return (
-    <div
-      className="h-screen max-h-screen flex flex-col items-center justify-center"
-      id="ContactMeScreen"
-    >
-      <div className="w-4/5 flex justify-center lg:justify-start pt-8 pb-8">
-        <h1 className="text-5xl MarartSansBoldFont">Contact Me</h1>
-      </div>
-      <div className="flex flex-col items-center justify-center">
-        <p className="pb-4">Here's all the ways we can get in touch!</p>
-        <div className="mx-auto space-y-8 w-full p-6 bg-gray-100 rounded-md">
-          {/* Connect me section */}
-          <div className="relative bg-white rounded-lg shadow-md p-6">
-            <h3 className="absolute -top-4 left-4 px-2 font-semibold text-xl">
-              Contact Me
-            </h3>
-            <div className="space-y-4">
-              {contactMethods.map((method, index) => (
-                <div
-                  key={index}
-                  className={`flex items-center justify-between gap-24 ${
-                    method.imgAlt === "Gmail" ? "group" : ""
-                  }`}
-                >
-                  <div
-                    className="flex items-center justify-center cursor-pointer"
-                    onClick={method.onClick}
-                  >
-                    <div>{method.label}</div>
-                    <span className="hidden ml-2 size-4 group-hover:inline">
-                      {method.icon}
-                    </span>
+    <section className="py-20" id="ContactMeScreen">
+      <div className="space-y-16">
+        <div className="space-y-4">
+          <h2 className="text-3xl sm:text-5xl font-bold flex items-center gap-3">
+            <MessageSquare className="size-8 text-primary" />
+            Get in Touch
+          </h2>
+          <p className="text-lg text-muted-foreground max-w-2xl">
+            Have a project in mind or just want to chat? Feel free to reach out through any of these channels.
+          </p>
+        </div>
+
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+          {/* Contact Cards */}
+          <div className="space-y-6">
+            {contactMethods.map((method, index) => (
+              <motion.div
+                key={method.label}
+                initial={{ opacity: 0, x: -20 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: index * 0.1 }}
+                className="group glass p-6 rounded-2xl border border-white/20 dark:border-white/10 hover:border-primary/30 transition-all flex items-center justify-between"
+              >
+                <div className="flex items-center gap-4">
+                  <div className="p-3 rounded-xl bg-muted dark:bg-muted-dark group-hover:scale-110 transition-transform">
+                    {method.icon}
                   </div>
                   <div>
-                    <a
-                      href={method.link}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-blue-600 hover:text-blue-800"
-                    >
-                      <img
-                        src={method.imgSrc}
-                        alt={method.imgAlt}
-                        className="h-10"
-                      />
+                    <p className="text-sm font-medium text-muted-foreground">{method.label}</p>
+                    <a href={method.link} className="text-lg font-bold hover:text-primary transition-colors">
+                      {method.value}
                     </a>
                   </div>
                 </div>
-              ))}
-            </div>
+                {method.onAction && (
+                  <button
+                    onClick={method.onAction}
+                    className="p-2 rounded-lg hover:bg-primary/10 transition-colors"
+                    aria-label={`Copy ${method.label}`}
+                  >
+                    {method.actionIcon}
+                  </button>
+                )}
+              </motion.div>
+            ))}
           </div>
 
-          {/* Other profiles section */}
-          <div className="relative bg-white rounded-lg shadow-md p-6">
-            <h3 className="absolute -top-3 left-4 px-2 font-semibold text-md mb-4">
-              My Other profiles
-            </h3>
-            <div className="flex justify-center space-x-10">
-              {otherProfiles.map((profile, index) => (
+          {/* Social Links & CTA */}
+          <div className="glass p-8 rounded-3xl border border-white/20 dark:border-white/10 space-y-8 flex flex-col justify-between">
+            <div className="space-y-4">
+              <h3 className="text-2xl font-bold">Connect Elsewhere</h3>
+              <p className="text-muted-foreground">
+                Follow my journey and check out my latest contributions on other platforms.
+              </p>
+              <div className="flex gap-4">
+                {socialLinks.map((social) => (
+                  <a
+                    key={social.name}
+                    href={social.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={`p-4 rounded-2xl glass border border-white/10 ${social.color} transition-all hover:scale-110 hover:-translate-y-1`}
+                    title={social.name}
+                  >
+                    {React.cloneElement(social.icon as React.ReactElement, { className: "size-6" })}
+                  </a>
+                ))}
+              </div>
+            </div>
+
+            <div className="pt-8 border-t border-white/10 mt-auto">
+              <div className="flex flex-col items-center text-center space-y-4">
+                <div className="size-16 rounded-full bg-primary/20 flex items-center justify-center animate-bounce">
+                  <Mail className="size-8 text-primary" />
+                </div>
+                <h4 className="text-xl font-bold">Ready to start?</h4>
                 <a
-                  key={index}
-                  href={profile.link}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className={profile.className}
+                  href={`mailto:${email}`}
+                  className="px-8 py-4 rounded-full bg-primary text-white font-bold hover:bg-primary/90 transition-all shadow-lg shadow-primary/25 hover:scale-105 active:scale-95 flex items-center gap-2"
                 >
-                  <img
-                    src={profile.imgSrc}
-                    alt={profile.imgAlt}
-                    className="h-8"
-                  />
+                  Send a Message <MessageSquare className="size-5" />
                 </a>
-              ))}
+              </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 
-export { ContactMe };
+export { ContactMe };
