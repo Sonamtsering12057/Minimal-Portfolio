@@ -32,7 +32,7 @@ const ContactMe: React.FC = () => {
       label: "LinkedIn",
       value: "Sonam Tsering",
       icon: <Linkedin className="size-5 text-accent" />,
-      link: "https://www.linkedin.com/in/SonamTsering",
+      link: "https://www.linkedin.com/in/sonam-tsering-84754928b/",
     },
   ];
 

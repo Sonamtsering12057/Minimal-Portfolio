@@ -156,7 +156,7 @@ const MyDescription: React.FC<{ startNotation: boolean }> = ({ startNotation: _s
           <div className="flex gap-6">
             {[
               { icon: <Github className="size-7" />, href: "https://github.com/Sonamtsering12057", label: "GitHub" },
-              { icon: <Linkedin className="size-7" />, href: "https://www.linkedin.com/in/SonamTsering", label: "LinkedIn" },
+              { icon: <Linkedin className="size-7" />, href: "https://www.linkedin.com/in/sonam-tsering-84754928b/", label: "LinkedIn" },
             ].map((social) => (
               <a
                 key={social.label}
